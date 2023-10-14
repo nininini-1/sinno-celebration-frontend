@@ -1,24 +1,25 @@
-// /**
-//  * 防抖函数
-//  * @param func 执行函数
-//  * @param delay 延迟时间 ms
-//  * @param immediate 是否立即执行
-//  */
-// export default function (func: any, delay: number, immediate: boolean = false): Function {
-//   let timer: any
+/* eslint-disable */
+const throttle = (fn: Function, wait: number = 300) => {
+  let inThrottle: boolean,
+    lastFn: ReturnType<typeof setTimeout>,
+    lastTime: number;
+  return function (this: any) {
+    const context = this,
+      args = arguments;
+    if (!inThrottle) {
+      fn.apply(context, args);
+      lastTime = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFn);
+      lastFn = setTimeout(() => {
+        if (Date.now() - lastTime >= wait) {
+          fn.apply(context, args);
+          lastTime = Date.now();
+        }
+      }, Math.max(wait - (Date.now() - lastTime), 0));
+    }
+  };
+};
 
-//   return function (this: unknown, ...args: any[]) {
-//     let that = this
-//     if (immediate) {
-//       func.apply(that, args) // 确保引用函数的指向正确，并且函数的参数也不变
-//       immediate = false
-//       return
-//     }
-//     clearTimeout(timer)
-//     timer = setTimeout(() => {
-//       func.apply(that, args)
-//     }, delay)
-//   }
-// }
-
-export {}
+export default throttle

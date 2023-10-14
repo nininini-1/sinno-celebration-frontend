@@ -5,21 +5,21 @@ import {
   Routes,
   useNavigate,
   useLocation,
-  MemoryRouter as Router,
+  BrowserRouter as Router,
 } from 'react-router-dom';
 import './index.less';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import VenueMap from './pages/VenueMap';
 import Service from './pages/Service';
 // import throttle from './utils/throttle';
 
 const TABS_DATA = [
   {
-    key: '/home',
-    title: '首页',
+    key: '/',
+    title: '首  页',
   },
   {
-    key: '/maps',
+    key: '/venue-maps',
     title: '会场地图',
   },
   {
@@ -37,7 +37,9 @@ const Bottom: FC = () => {
         <TabBar.Item
           key={item.key}
           title={(isActive) => (
-            <div className={isActive ? 'active' : ''}>{item.title}</div>
+            <div className={`default-tab ${isActive ? 'active-tab' : ''}`}>
+              {item.title}
+            </div>
           )}
         />
       ))}
@@ -51,10 +53,11 @@ const App: FC = () => {
   const [tabbarVisible, setTabBarVisible] = useState(false);
 
   useEffect(() => {
+    setTabBarVisible(pathname !== '/');
     addEventListener(
       'scroll',
       () => {
-        if (pathname === '/home') {
+        if (pathname === '/') {
           const OFFSET_HEIGHT = document.body.offsetHeight;
 
           if (scrollY > OFFSET_HEIGHT / 2) {
@@ -63,6 +66,7 @@ const App: FC = () => {
             setTabBarVisible(false);
           }
         } else {
+          console.log('other');
           setTabBarVisible(true);
         }
       },
@@ -73,6 +77,7 @@ const App: FC = () => {
       removeEventListener('scroll', () => undefined);
     };
   }, [pathname]);
+  console.log(tabbarVisible);
 
   return (
     <div
@@ -83,15 +88,15 @@ const App: FC = () => {
     >
       <div className={'tabs-body'}>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/message" element={<VenueMap />} />
-          <Route path="/me" element={<Service />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/venue-maps" element={<VenueMap />} />
+          <Route path="/service" element={<Service />} />
         </Routes>
       </div>
       <div
         className={'tabs-bottom'}
         style={{
-          opacity: tabbarVisible ? 1 : 0,
+          height: tabbarVisible ? 44 : 0,
         }}
       >
         <Bottom />
@@ -101,7 +106,7 @@ const App: FC = () => {
 };
 const Index = () => {
   return (
-    <Router initialEntries={['/home']}>
+    <Router>
       <App />
     </Router>
   );
