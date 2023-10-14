@@ -9,8 +9,8 @@ import {
 } from 'react-router-dom';
 import './index.less';
 import Home from './pages/home/Home';
-import VenueMap from './pages/VenueMap';
-import Service from './pages/Service';
+import VenueMap from './pages/venue-map/VenueMap';
+import Service from './pages/service/Service';
 // import throttle from './utils/throttle';
 
 const TABS_DATA = [
@@ -68,6 +68,7 @@ const App: FC = () => {
         } else {
           console.log('other');
           setTabBarVisible(true);
+          removeEventListener('scroll', () => undefined);
         }
       },
       true

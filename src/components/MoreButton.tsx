@@ -1,7 +1,6 @@
 import { ButtonProps, Button, Image } from 'antd-mobile';
 import { FunctionComponent } from 'react';
 import arrow from '@/assets/arrow.svg';
-import './index.less';
 
 const MoreButton: FunctionComponent<ButtonProps> = ({
   style,
@@ -15,6 +14,8 @@ const MoreButton: FunctionComponent<ButtonProps> = ({
         fontWeight: 700,
         textDecoration: 'underline',
         letterSpacing: 1.4,
+        transform: 'translate(-50%)',
+        left: '50%',
         ...style,
       }}
       className={`bounce ${className}`}

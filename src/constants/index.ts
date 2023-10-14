@@ -154,10 +154,62 @@ const ENV_DATA = [
     ],
   },
 ];
+
+const MAP_DATA = [
+  {
+    building: 'A 栋',
+    name: '主会场',
+    desc: '二十周年庆典\n主会场',
+    pos: '中研星园  A栋',
+    ltr: true,
+    left: 120,
+    top: 170,
+    todo: [
+      { desc: '嘉宾签到', time: '14:00-14:30' },
+      { desc: '创始人致辞及团队介绍', time: '15:00-16:00' },
+      { desc: '特邀行业专家主题演讲', time: '16:00-17:30' },
+      { desc: '中研新工厂启动仪式', time: '17:30-18:00' },
+    ],
+  },
+  {
+    building: 'B 栋',
+    name: '生产车间',
+    desc: '车间',
+    pos: '中研星园  B栋',
+    right: -30,
+    ltr: true,
+    top: 110,
+    todo: [{ desc: '中研智慧园区参观', time: '14:30-15:00' }],
+  },
+  {
+    building: 'E 栋',
+    name: '餐厅',
+    desc: '餐厅',
+    pos: '中研星园  E栋',
+    left: 120,
+    ltr: false,
+    bottom:90,
+    todo: [{ desc: '中研智慧园区参观', time: '14:30-15:00' }],
+  },
+  {
+    building: 'C栋',
+    desc: '仓库',
+    right: -90,
+    bottom: 170,
+  },
+  {
+    building: 'D栋',
+    desc: '车间',
+    bottom: 70,
+    right: 25,
+  },
+];
+
 export {
   EXPERT_DATA,
   BUTTON_HIDDEN_DATE,
   SCHEDULE_DATA,
   ENV_DATA,
   RESERVE_URL,
+  MAP_DATA,
 };
