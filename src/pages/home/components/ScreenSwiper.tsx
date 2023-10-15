@@ -19,9 +19,11 @@ const items = ENV_DATA.map(({ key, bg, desc }) => (
             borderRadius: 8,
             overflow: 'hidden',
           }}
-          className='hidden-scroll-bar'
+          className="hidden-scroll-bar"
         >
-          <Image src={img} style={{ height: 94 }} />
+          <div style={{ width: 187, height: 94 }}>
+            <Image src={img} style={{ height: 94 }} />
+          </div>
           <div
             style={{
               width: 100,

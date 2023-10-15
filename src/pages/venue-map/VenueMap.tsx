@@ -35,7 +35,9 @@ const VenueMap: FC = () => {
               marginBottom: 30,
             }}
           >
-            <Image src={IconTitle} width={110} />
+            <div style={{ width: 110, height: 40 }}>
+              <Image src={IconTitle} width={110} />
+            </div>
           </div>
           {/* map */}
           {currentKey === 'map' && <MapComponent />}

@@ -151,7 +151,7 @@ const ENV_DATA = [
         pos: 'A栋 5F',
       },
       { img: ImgEnv32, title: '生产可视化的\n化妆品车间', pos: 'B栋' },
-      { img: ImgEnv33, title: '大数据监控下的\n质量管理', pos: 'B栋' },
+      { img: ImgEnv33, title: '大数据监控下\n的质量管理', pos: 'B栋' },
     ],
   },
 ];

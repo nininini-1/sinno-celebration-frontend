@@ -15,13 +15,15 @@ const MapComponent: FC = () => {
       }}
       className="hidden-scroll-bar"
     >
-      <Image
-        src={ImgBg}
-        width={486}
+      <div
         style={{
           padding: '20px 60px',
+          width: 486,
+          height: 410,
         }}
-      />
+      >
+        <Image src={ImgBg} />
+      </div>
       <div style={{ position: 'absolute', left: 50, bottom: 50 }}>
         <svg
           width="24"

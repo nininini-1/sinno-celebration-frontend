@@ -131,12 +131,9 @@ const FloorGuide: FC = () => {
   return (
     <div>
       <div style={{ display: 'flex', marginTop: 24, gap: 10 }}>
-        <Image
-          src={ImgFloor}
-          width={264}
-          height={742}
-          style={{ marginTop: 12 }}
-        />
+        <div style={{ marginTop: 12, width: 264, height: 742 }}>
+          <Image src={ImgFloor} />
+        </div>
         <div
           style={{
             paddingTop: 120,
