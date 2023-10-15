@@ -16,6 +16,7 @@ const MoreButton: FunctionComponent<ButtonProps> = ({
         letterSpacing: 1.4,
         transform: 'translate(-50%)',
         left: '50%',
+        paddingBottom: 40,
         ...style,
       }}
       className={`bounce ${className}`}

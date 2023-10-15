@@ -53,6 +53,7 @@ const App: FC = () => {
   const [tabbarVisible, setTabBarVisible] = useState(false);
 
   useEffect(() => {
+    scrollTo(0, 0);
     setTabBarVisible(pathname !== '/');
     addEventListener(
       'scroll',
@@ -66,7 +67,6 @@ const App: FC = () => {
             setTabBarVisible(false);
           }
         } else {
-          console.log('other');
           setTabBarVisible(true);
           removeEventListener('scroll', () => undefined);
         }
@@ -78,15 +78,9 @@ const App: FC = () => {
       removeEventListener('scroll', () => undefined);
     };
   }, [pathname]);
-  console.log(tabbarVisible);
 
   return (
-    <div
-      className={'app'}
-      onScroll={(e) => {
-        console.log(e);
-      }}
-    >
+    <div className={'app'}>
       <div className={'tabs-body'}>
         <Routes>
           <Route path="/" element={<Home />} />

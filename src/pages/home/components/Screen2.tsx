@@ -5,7 +5,6 @@ import { FC } from 'react';
 import ImgSinno20 from '@/assets/sinno-20.png';
 import ImgSchedule from '@/assets/schedule.png';
 import ImglivePhoto from '@/assets/live-photo.png';
-import IconTip from '@/assets/tip.svg';
 
 const Screen2: FC = () => {
   return (
@@ -89,7 +88,21 @@ const Screen2: FC = () => {
                     height: 136,
                   }}
                 >
-                  <Image src={IconTip} />
+                  <svg
+                    width="34"
+                    height="34"
+                    viewBox="0 0 34 34"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M17 33.5831C7.79529 33.5831 0.333374 26.1212 0.333374 16.9164C0.333374 7.71168 7.79529 0.249756 17 0.249756C26.2048 0.249756 33.6667 7.71168 33.6667 16.9164C33.6667 26.1212 26.2048 33.5831 17 33.5831ZM15.7279 7.14266H18.2686L18.0863 19.8038H15.9102L15.7279 7.14266ZM15.5 23.9509C15.5 24.7826 16.1608 25.4207 16.9926 25.4207C17.847 25.4207 18.4965 24.7826 18.4965 23.9509C18.4965 23.1192 17.847 22.4812 16.9926 22.4812C16.1608 22.4812 15.5 23.1192 15.5 23.9509Z"
+                      fill="white"
+                    />
+                  </svg>
+
                   <p
                     style={{
                       fontSize: 18,

@@ -17,6 +17,7 @@ import ImgEnv33 from '@/assets/environment3-3.png';
 const RESERVE_URL = 'https://docs.qq.com/form/page/DWkdYWmRnRlRNQ2JS';
 
 const BUTTON_HIDDEN_DATE = '2023/10/20';
+const CELEBRATION_DATE = '2023/11/12';
 const EXPERT_DATA = [
   {
     name: '龙春林',
@@ -188,7 +189,7 @@ const MAP_DATA = [
     pos: '中研星园  E栋',
     left: 120,
     ltr: false,
-    bottom:90,
+    bottom: 90,
     todo: [{ desc: '中研智慧园区参观', time: '14:30-15:00' }],
   },
   {
@@ -212,4 +213,5 @@ export {
   ENV_DATA,
   RESERVE_URL,
   MAP_DATA,
+  CELEBRATION_DATE,
 };
