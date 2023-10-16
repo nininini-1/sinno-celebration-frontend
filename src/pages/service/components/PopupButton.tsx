@@ -223,7 +223,11 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
                     }}
                   >
                     <div style={{ width: 86 }}>{title}：</div>
-                    <div>
+                    <div
+                      onClick={() => {
+                        window.location.href = `tel:${tel}`;
+                      }}
+                    >
                       <p style={{ lineHeight: 1.7 }}>{name}</p>
                       <div style={{ lineHeight: 1.7 }}>
                         <svg
