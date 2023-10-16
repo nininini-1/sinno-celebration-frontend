@@ -12,9 +12,9 @@ const VenueMap: FC = () => {
     <div
       style={{
         width: '100vw',
-        minHeight: '100vh',
+        minHeight: currentKey === 'guide' ? '100vh' : 'auto',
+        height: currentKey === 'guide' ? 'auto' : '100vh',
         background: '#EDF3F2',
-        paddingBottom: 100,
       }}
     >
       {currentKey === 'map' && (
@@ -50,6 +50,7 @@ const VenueMap: FC = () => {
             width: '100vw',
             margin: '0 auto',
             paddingTop: 52,
+            paddingBottom: 100,
           }}
         >
           {/* title */}

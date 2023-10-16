@@ -100,7 +100,14 @@ const ICON_DATA = [
 ];
 
 const FloorGuide: FC = () => {
-  return <Image src={ImgFloor} />;
+  return (
+    <Image
+      src={ImgFloor}
+      style={{
+        marginBottom: 60,
+      }}
+    />
+  );
   return (
     <div>
       <div style={{ display: 'flex', marginTop: 24, gap: 10 }}>

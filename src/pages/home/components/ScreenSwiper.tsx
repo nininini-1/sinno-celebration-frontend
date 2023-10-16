@@ -173,6 +173,7 @@ const ScreenSwiper: FC = () => {
           onIndexChange={(i) => {
             setCurrentIndex(i);
           }}
+          autoplayInterval={5000}
         >
           {items}
         </Swiper>
