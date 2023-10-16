@@ -44,7 +44,7 @@ const Home: FC = () => {
         style={{
           paddingTop: 28,
           whiteSpace: 'pre-line',
-          paddingBottom: 100,
+          paddingBottom: 44,
           backgroundColor: '#F8F8F8',
         }}
         className="container"
@@ -66,6 +66,7 @@ const Home: FC = () => {
               fontSize: 18,
               width: 240,
               marginTop: 20,
+              marginBottom: 50,
             }}
             onClick={() => {
               window.open(RESERVE_URL);
@@ -74,6 +75,37 @@ const Home: FC = () => {
             即刻预约
           </Button>
         )}
+
+        <div
+          style={{
+            textDecoration: 'underline',
+            fontSize: 12,
+            letterSpacing: 1.4,
+            fontWeight: 700,
+            zoom: 0.8333,
+            marginBottom: 16,
+          }}
+        >
+          下滑加载更多
+        </div>
+        <div style={{ position: 'relative', marginTop: 32, left: -10 }}>
+          <svg
+            width="19"
+            height="10"
+            viewBox="0 0 19 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="bounce"
+          >
+            <path
+              d="M1.5 1L9.50154 8.88528L17.5 1"
+              stroke="#2D5958"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Button, Popup, Toast } from 'antd-mobile';
+import { Button, Popup } from 'antd-mobile';
 import { FunctionComponent, useState } from 'react';
 import CardButton from './CardButton';
 
@@ -155,48 +155,12 @@ const DATA: Record<string, any> = {
 const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
   const [visible, setVisible] = useState(false);
   const data = DATA[dataKey];
+  const [copyable, setcopyable] = useState(true);
   if (!data) return null;
   return (
     <>
       <CardButton
         onClick={() => {
-          // Toast.show({
-          //   duration: 0,
-          //   content: (
-          //     <div
-          //       style={{
-          //         borderRadius: 12,
-          //         gap: 16,
-          //         display: 'flex',
-          //         flexDirection: 'column',
-          //         alignItems: 'center',
-          //         backgroundColor: '#4C4C4C',
-          //         justifyContent: 'center',
-          //         padding: '0 12px',
-          //         height: 160,
-          //       }}
-          //     >
-          //       <svg
-          //         width="40"
-          //         height="40"
-          //         viewBox="0 0 40 40"
-          //         fill="none"
-          //         xmlns="http://www.w3.org/2000/svg"
-          //       >
-          //         <g opacity="0.9">
-          //           <path
-          //             fillRule="evenodd"
-          //             clipRule="evenodd"
-          //             d="M16.3137 31.1964C15.9232 31.5869 15.29 31.5869 14.8995 31.1964L5 21.2969L7.35702 18.9399L15.6066 27.1894L34.4628 8.33325L36.8198 10.6903L16.3137 31.1964Z"
-          //             fill="white"
-          //           />
-          //         </g>
-          //       </svg>
-          //       已复制
-          //     </div>
-          //   ),
-          // });
-          // return;
           setVisible(true);
         }}
       >
@@ -358,45 +322,46 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
                 }}
               >
                 <span>{data?.content?.title}</span>
-                <Button
-                  style={{
-                    fontSize: 12,
-                    zoom: 0.8333,
-                    borderRadius: 4,
-                    background: 'var(--color-secondary)',
-                    color: 'white',
-                    padding: '4px 7px',
-                  }}
-                  onClick={async () => {
-                    await navigator?.clipboard?.writeText(data?.content?.title);
-                    Toast.show({
-                      duration: 0,
-                      content: (
-                        <div>
-                          <svg
-                            width="40"
-                            height="40"
-                            viewBox="0 0 40 40"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g opacity="0.9">
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M16.3137 31.1964C15.9232 31.5869 15.29 31.5869 14.8995 31.1964L5 21.2969L7.35702 18.9399L15.6066 27.1894L34.4628 8.33325L36.8198 10.6903L16.3137 31.1964Z"
-                                fill="white"
-                              />
-                            </g>
-                          </svg>
-                          已复制
-                        </div>
-                      ),
-                    });
-                  }}
-                >
-                  复制
-                </Button>
+                {copyable ? (
+                  <Button
+                    style={{
+                      fontSize: 12,
+                      zoom: 0.8333,
+                      borderRadius: 4,
+                      background: 'var(--color-secondary)',
+                      color: 'white',
+                      padding: '4px 7px',
+                    }}
+                    onClick={async () => {
+                      await navigator?.clipboard?.writeText(
+                        data?.content?.title
+                      );
+                      setcopyable(false);
+                      setTimeout(() => {
+                        setcopyable(true);
+                      }, 3000);
+                    }}
+                  >
+                    复制
+                  </Button>
+                ) : (
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.9">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M16.3137 31.1964C15.9232 31.5869 15.29 31.5869 14.8995 31.1964L5 21.2969L7.35702 18.9399L15.6066 27.1894L34.4628 8.33325L36.8198 10.6903L16.3137 31.1964Z"
+                        fill="var(--color-secondary)"
+                      />
+                    </g>
+                  </svg>
+                )}
               </div>
               <p
                 style={{
