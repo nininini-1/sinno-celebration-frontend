@@ -12,6 +12,21 @@ const Home: FC = () => {
   return (
     <div className="home">
       <div className="home__welcome">
+        <div className="home__welcome__box">
+          <div>
+            <p>智造中国</p>
+            <p>共研未来</p>
+            <p>2003/2023</p>
+          </div>
+          <div>
+            <p>时间</p>
+            <p>2023.11.12 周日</p>
+            <p>14:00-20:00</p>
+            <p>地点</p>
+            <p>广东 中山</p>
+            <p>中研化妆品公司</p>
+          </div>
+        </div>
         <MoreButton
           onClick={() => {
             scrollTo(0, document.body.offsetHeight);
