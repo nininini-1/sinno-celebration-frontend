@@ -1,25 +1,7 @@
 import { FC } from 'react';
 import { Image } from 'antd-mobile';
-import ImgFloor from '@/assets/floor-a-building.png';
+import ImgFloor from '@/assets/guide.png';
 
-/**
- * 检测中心
-Testing
-Center
-品控中心
-QA &QC
-Center
-研发中心
-R&D Center
-Innovation
-Center
-办公层
-Office Zone
-二十周年主会场
-The main venue
-Company Hall 
-大厅
- */
 const FLOOR_DATA = [
   '检测中心\nTestingCenter',
   '品控中心\nQA &QC Center',
@@ -30,16 +12,6 @@ const FLOOR_DATA = [
   '大厅\nCompany Hall',
 ];
 
-/**
- * 电梯
-
-
-
-
-
-
-Stairs
- */
 const ICON_DATA = [
   {
     icon: (
@@ -128,6 +100,7 @@ const ICON_DATA = [
 ];
 
 const FloorGuide: FC = () => {
+  return <Image src={ImgFloor} />;
   return (
     <div>
       <div style={{ display: 'flex', marginTop: 24, gap: 10 }}>

@@ -36,6 +36,9 @@ const Bottom: FC = () => {
       {TABS_DATA.map((item) => (
         <TabBar.Item
           key={item.key}
+          style={{
+            backgroundColor: 'white',
+          }}
           title={(isActive) => (
             <div className={`default-tab ${isActive ? 'active-tab' : ''}`}>
               {item.title}

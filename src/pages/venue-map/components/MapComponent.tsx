@@ -69,18 +69,7 @@ const MapComponent: FC = () => {
       >
         园区入口
       </div>
-      <p
-        style={{
-          position: 'absolute',
-          fontWeight: 600,
-          fontSize: 12,
-          zoom: 0.8333,
-          top: 240,
-          left: 330,
-        }}
-      >
-        中庭园林
-      </p>
+
       {MAP_DATA.map((item) => (
         <PositionBox {...item} key={item.building} />
       ))}

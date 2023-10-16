@@ -9,6 +9,7 @@ const items = ENV_DATA.map(({ key, bg, desc }) => (
         display: 'flex',
         flexDirection: 'column',
         gap: 16,
+        padding: '0 calc(50vw - 160px)',
       }}
     >
       {desc.map(({ img, title, pos }) => (
@@ -81,87 +82,101 @@ const ScreenSwiper: FC = () => {
   return (
     <div
       style={{
-        paddingTop: 52,
-        maxWidth: 320,
-        margin: '0 auto',
+        backgroundColor: '#F8F8F8',
       }}
     >
-      {/* title */}
       <div
         style={{
-          textAlign: 'left',
-          whiteSpace: 'pre-line',
-          fontSize: 28,
-          fontWeight: 700,
-          marginBottom: 32,
-          width: '100%',
+          paddingTop: 52,
+          width: '100vw',
         }}
       >
-        中研星园掠影{'\n'}
-        <span style={{ fontSize: 20 }}>Park Tour</span>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: 24,
-        }}
-      >
-        {ENV_DATA.map(({ key }, index) => (
-          <div
-            key={key}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              position: 'relative',
-            }}
-          >
-            {index !== ENV_DATA?.length - 1 && (
-              <div
-                style={{
-                  position: 'absolute',
-                  right: -12,
-                  width: 1,
-                  height: 30,
-                  background: 'var(--color-border)',
-                }}
-              />
-            )}
-            <Button
-              onClick={() => {
-                console.log('red', ref);
-                ref.current?.swipeTo(index);
-              }}
-              fill="none"
+        {/* title */}
+        <div
+          style={{
+            textAlign: 'left',
+            fontSize: 28,
+            fontWeight: 700,
+            lineHeight: 1.5,
+            color: '#000',
+            padding: '0 calc(50vw - 160px)',
+          }}
+        >
+          中研星园掠影
+        </div>
+        <div
+          style={{
+            marginBottom: 32,
+            fontWeight: 700,
+            fontSize: 20,
+            lineHeight: 1.5,
+            color: '#000',
+            padding: '0 calc(50vw - 160px)',
+          }}
+        >
+          Park Tour
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: 24,
+            padding: '0 calc(50vw - 160px)',
+          }}
+        >
+          {ENV_DATA.map(({ key }, index) => (
+            <div
+              key={key}
               style={{
-                fontWeight: 600,
-                fontSize: 14,
-                padding: 0,
-                textAlign: 'left',
-                whiteSpace: 'pre-line',
-                color:
-                  currentIndex === index
-                    ? 'var(--color-text)'
-                    : 'var(--color-tip)',
+                display: 'flex',
+                alignItems: 'center',
+                position: 'relative',
               }}
             >
-              {key}
-            </Button>
-          </div>
-        ))}
-      </div>
+              {index !== ENV_DATA?.length - 1 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: -12,
+                    width: 1,
+                    height: 30,
+                    background: 'var(--color-border)',
+                  }}
+                />
+              )}
+              <Button
+                onClick={() => {
+                  console.log('red', ref);
+                  ref.current?.swipeTo(index);
+                }}
+                fill="none"
+                style={{
+                  fontWeight: 600,
+                  fontSize: 14,
+                  padding: 0,
+                  textAlign: 'left',
+                  whiteSpace: 'pre-line',
+                  color: currentIndex === index ? '#000' : 'var(--color-tip)',
+                }}
+              >
+                {key}
+              </Button>
+            </div>
+          ))}
+        </div>
 
-      <Swiper
-        ref={ref}
-        indicator={() => undefined}
-        loop
-        autoplay
-        onIndexChange={(i) => {
-          setCurrentIndex(i);
-        }}
-      >
-        {items}
-      </Swiper>
+        <Swiper
+          ref={ref}
+          indicator={() => undefined}
+          loop
+          autoplay
+          onIndexChange={(i) => {
+            setCurrentIndex(i);
+          }}
+        >
+          {items}
+        </Swiper>
+      </div>
     </div>
   );
 };

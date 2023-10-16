@@ -11,7 +11,12 @@ import { BUTTON_HIDDEN_DATE, RESERVE_URL } from '@/constants';
 const Home: FC = () => {
   return (
     <div className="home">
-      <div className="home__welcome">
+      <div
+        className="home__welcome"
+        onClick={() => {
+          scrollTo(0, document.body.offsetHeight);
+        }}
+      >
         <div className="home__welcome__box">
           <div>
             <p>智造中国</p>
@@ -27,11 +32,7 @@ const Home: FC = () => {
             <p>中研化妆品公司</p>
           </div>
         </div>
-        <MoreButton
-          onClick={() => {
-            scrollTo(0, document.body.offsetHeight);
-          }}
-        />
+        <MoreButton />
       </div>
       {/* 第一屏 */}
       <Screen1 />
@@ -40,7 +41,12 @@ const Home: FC = () => {
       <ScreenSwiper />
       {/* 底部即刻预约 */}
       <div
-        style={{ marginTop: 28, whiteSpace: 'pre-line', marginBottom: 100 }}
+        style={{
+          paddingTop: 28,
+          whiteSpace: 'pre-line',
+          paddingBottom: 100,
+          backgroundColor: '#F8F8F8',
+        }}
         className="container"
       >
         <p

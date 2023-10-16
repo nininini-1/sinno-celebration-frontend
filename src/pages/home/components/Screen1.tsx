@@ -1,27 +1,27 @@
 import { BUTTON_HIDDEN_DATE, RESERVE_URL } from '@/constants';
 import { Button } from 'antd-mobile';
-import { FC, useEffect } from 'react';
-import ScrollReveal from 'scrollreveal';
-const FIRST_DELAY = 100;
-const DELAY_DISTANCE = 500;
+import { FC } from 'react';
+// import ScrollReveal from 'scrollreveal';
+// const FIRST_DELAY = 100;
+// const DELAY_DISTANCE = 500;
 const Screen1: FC = () => {
-  useEffect(() => {
-    ScrollReveal({
-      delay: FIRST_DELAY,
-    })?.reveal('.reveal1');
-    ScrollReveal({
-      delay: FIRST_DELAY + DELAY_DISTANCE * 1,
-    })?.reveal('.reveal2');
-    ScrollReveal({
-      delay: FIRST_DELAY + DELAY_DISTANCE * 2,
-    })?.reveal('.reveal3');
-    ScrollReveal({
-      delay: FIRST_DELAY + DELAY_DISTANCE * 3,
-    })?.reveal('.reveal4');
-    ScrollReveal({
-      delay: FIRST_DELAY + DELAY_DISTANCE * 4,
-    })?.reveal('.reveal5');
-  }, []);
+  // useEffect(() => {
+  //   ScrollReveal({
+  //     delay: FIRST_DELAY,
+  //   })?.reveal('.reveal1');
+  //   ScrollReveal({
+  //     delay: FIRST_DELAY + DELAY_DISTANCE * 1,
+  //   })?.reveal('.reveal2');
+  //   ScrollReveal({
+  //     delay: FIRST_DELAY + DELAY_DISTANCE * 2,
+  //   })?.reveal('.reveal3');
+  //   ScrollReveal({
+  //     delay: FIRST_DELAY + DELAY_DISTANCE * 3,
+  //   })?.reveal('.reveal4');
+  //   ScrollReveal({
+  //     delay: FIRST_DELAY + DELAY_DISTANCE * 4,
+  //   })?.reveal('.reveal5');
+  // }, []);
   return (
     <div
       className="container"
@@ -41,9 +41,10 @@ const Screen1: FC = () => {
           className="reveal1"
           style={{
             fontSize: 20,
-            lineHeight: '160%',
+            lineHeight: 1.6,
             fontWeight: 700,
             marginBottom: 20,
+            letterSpacing: 0.8,
           }}
         >
           「智造中国，共研未来」 中研二十周年庆典
@@ -57,7 +58,7 @@ const Screen1: FC = () => {
           }}
         >
           <p style={{ color: 'var(--color-secondary)' }}>WELCOME LETTER</p>
-          <p style={{ fontSize: 25 }}>欢迎信</p>
+          <p style={{ fontSize: 25, letterSpacing: 5 }}>欢迎信</p>
         </div>
 
         <p
@@ -109,6 +110,7 @@ const Screen1: FC = () => {
             style={{
               fontSize: 12,
               zoom: 0.8333,
+              color: 'var(--color-secondary)',
             }}
           >
             <svg
@@ -138,6 +140,7 @@ const Screen1: FC = () => {
             style={{
               '--text-color': 'var(--adm-color-text)',
               fontSize: 18,
+              letterSpacing: 2.72,
             }}
             block
             className="reveal5"

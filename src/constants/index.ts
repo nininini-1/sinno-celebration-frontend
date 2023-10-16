@@ -21,8 +21,8 @@ const CELEBRATION_DATE = '2023/11/12';
 const EXPERT_DATA = [
   {
     name: '龙春林',
-    title: '植物之美：从中国走向世界',
-    desc: '民族植物学家、中国植物学会理事 中央民族大学生命与环境科学学院教授',
+    title: '植物之美：\n从中国走向世界',
+    desc: '民族植物学家、中国植物学会理事\n中央民族大学生命与环境科学学院教授',
     img: ImgExpertBg1,
     avatar: ImgExpert1,
   },
@@ -35,7 +35,7 @@ const EXPERT_DATA = [
   },
   {
     name: '三亩',
-    title: '快消品的科学传播： 从文字到视频',
+    title: '快消品的科学传播：\n从文字到视频',
     desc: '基础颜究创始人，清华博士，强生前资深研发经理，护肤科普专家',
     img: ImgExpertBg3,
     avatar: ImgExpert3,
@@ -177,7 +177,7 @@ const MAP_DATA = [
     name: '生产车间',
     desc: '车间',
     pos: '中研星园  B栋',
-    right: -30,
+    right: -20,
     ltr: true,
     top: 110,
     todo: [{ desc: '中研智慧园区参观', time: '14:30-15:00' }],
@@ -190,7 +190,7 @@ const MAP_DATA = [
     left: 120,
     ltr: false,
     bottom: 90,
-    todo: [{ desc: '中研智慧园区参观', time: '14:30-15:00' }],
+    todo: [{ desc: '周年庆晚宴', time: '18:00-20:00' }],
   },
   {
     building: 'C栋',
@@ -201,8 +201,8 @@ const MAP_DATA = [
   {
     building: 'D栋',
     desc: '车间',
-    bottom: 70,
-    right: 25,
+    bottom: 85,
+    right: 50,
   },
 ];
 

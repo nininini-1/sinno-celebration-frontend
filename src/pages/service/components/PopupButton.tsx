@@ -1,4 +1,4 @@
-import { Button, Divider, Popup } from 'antd-mobile';
+import { Button, Popup, Toast } from 'antd-mobile';
 import { FunctionComponent, useState } from 'react';
 import CardButton from './CardButton';
 
@@ -27,11 +27,6 @@ const DATA: Record<string, any> = {
       </svg>
     ),
     content: [
-      {
-        title: '会务总协调',
-        name: '罗经理（Lorna）',
-        tel: '13824754946',
-      },
       {
         title: '会务总协调',
         name: '罗经理（Lorna）',
@@ -165,6 +160,43 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
     <>
       <CardButton
         onClick={() => {
+          // Toast.show({
+          //   duration: 0,
+          //   content: (
+          //     <div
+          //       style={{
+          //         borderRadius: 12,
+          //         gap: 16,
+          //         display: 'flex',
+          //         flexDirection: 'column',
+          //         alignItems: 'center',
+          //         backgroundColor: '#4C4C4C',
+          //         justifyContent: 'center',
+          //         padding: '0 12px',
+          //         height: 160,
+          //       }}
+          //     >
+          //       <svg
+          //         width="40"
+          //         height="40"
+          //         viewBox="0 0 40 40"
+          //         fill="none"
+          //         xmlns="http://www.w3.org/2000/svg"
+          //       >
+          //         <g opacity="0.9">
+          //           <path
+          //             fillRule="evenodd"
+          //             clipRule="evenodd"
+          //             d="M16.3137 31.1964C15.9232 31.5869 15.29 31.5869 14.8995 31.1964L5 21.2969L7.35702 18.9399L15.6066 27.1894L34.4628 8.33325L36.8198 10.6903L16.3137 31.1964Z"
+          //             fill="white"
+          //           />
+          //         </g>
+          //       </svg>
+          //       已复制
+          //     </div>
+          //   ),
+          // });
+          // return;
           setVisible(true);
         }}
       >
@@ -187,22 +219,32 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
           borderTopLeftRadius: '8px',
           borderTopRightRadius: '8px',
           height: 480,
-          padding: '32px 0',
+          paddingBottom: 32,
           overflowX: 'auto',
         }}
+        stopPropagation={[]}
       >
         <div style={{ maxWidth: 320, margin: '0 auto' }}>
           <div
             style={{
               fontSize: 18,
               fontWeight: 600,
+              color: '#000',
+              lineHeight: '20px',
+              letterSpacing: 2,
+              borderBottom: '1px solid var(--color-border)',
+              marginBottom: 28,
+              paddingBottom: 28,
+              position: 'sticky',
+              top: 0,
+              backgroundColor: 'white',
+              zIndex: 2,
+              paddingTop: 32,
             }}
           >
             {data?.name}
           </div>
-          <Divider
-            style={{ borderColor: 'var(--color-border)', margin: '28px 0' }}
-          />
+
           {dataKey === 'contact' && (
             <>
               <div style={{ fontSize: 12, fontWeight: 500, marginBottom: 20 }}>
@@ -229,7 +271,12 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
                       }}
                     >
                       <p style={{ lineHeight: 1.7 }}>{name}</p>
-                      <div style={{ lineHeight: 1.7 }}>
+                      <div
+                        style={{
+                          lineHeight: 1.7,
+                          color: 'var(--color-primary)',
+                        }}
+                      >
                         <svg
                           width="12"
                           height="12"
@@ -278,6 +325,8 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
                       fontWeight: 500,
                       width: 320,
                       wordBreak: 'break-all',
+                      color: '#000',
+                      opacity: 0.5,
                     }}
                   >
                     {desc}
@@ -318,11 +367,35 @@ const PopopButton: FunctionComponent<{ dataKey: string }> = ({ dataKey }) => {
                     color: 'white',
                     padding: '4px 7px',
                   }}
-                  onClick={() => {
-                    navigator?.clipboard?.writeText(data?.content?.pos);
+                  onClick={async () => {
+                    await navigator?.clipboard?.writeText(data?.content?.title);
+                    Toast.show({
+                      duration: 0,
+                      content: (
+                        <div>
+                          <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 40 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.9">
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M16.3137 31.1964C15.9232 31.5869 15.29 31.5869 14.8995 31.1964L5 21.2969L7.35702 18.9399L15.6066 27.1894L34.4628 8.33325L36.8198 10.6903L16.3137 31.1964Z"
+                                fill="white"
+                              />
+                            </g>
+                          </svg>
+                          已复制
+                        </div>
+                      ),
+                    });
                   }}
                 >
-                  复制地址
+                  复制
                 </Button>
               </div>
               <p

@@ -13,7 +13,7 @@ const VenueMap: FC = () => {
       style={{
         width: '100vw',
         minHeight: '100vh',
-        background: 'var(--color-bg)',
+        background: '#EDF3F2',
         paddingBottom: 100,
       }}
     >
@@ -46,14 +46,14 @@ const VenueMap: FC = () => {
       {currentKey === 'guide' && (
         <div
           style={{
-            maxWidth: 320,
+            maxWidth: 346,
             width: '100vw',
             margin: '0 auto',
             paddingTop: 52,
           }}
         >
           {/* title */}
-          <div style={{}}>
+          {/* <div style={{}}>
             <p style={{ fontSize: 16, fontWeight: 700, textAlign: 'right' }}>
               A栋 楼层指引
             </p>
@@ -67,7 +67,7 @@ const VenueMap: FC = () => {
             >
               Map and floor guide for Building A
             </p>
-          </div>
+          </div> */}
 
           <FloorGuide />
         </div>
@@ -75,52 +75,60 @@ const VenueMap: FC = () => {
 
       <div
         style={{
-          display: 'flex',
-          gap: 12,
-          maxWidth: 320,
-          width: '100%',
-          margin: '0 auto',
-          marginTop: 50,
+          position: 'fixed',
+          bottom: 72,
+          left: 0,
+          right: 0,
         }}
       >
-        {[
-          {
-            key: 'map',
-            label: '园区地图',
-          },
-          {
-            key: 'guide',
-            label: 'A 栋楼层指引',
-          },
-        ].map(({ key, label }) => (
-          <Button
-            block
-            onClick={() => {
-              if (currentKey === key) return;
-              setCurrentKey(key as 'guide' | 'map');
-            }}
-            key={key}
-            style={{
-              fontSize: 14,
-              borderRadius: 8,
-              borderWidth: 1,
-              color: currentKey === key ? '#000' : 'rgba(0, 0, 0, 0.70)',
-              borderStyle: 'solid',
-              borderColor:
-                currentKey === key ? 'var(--adm-color-primary)' : '#CBCBCB',
-              fontWeight: 600,
-              padding: '12px ',
-              background:
-                currentKey === key ? 'var(--adm-color-primary)' : '#EDEFEF',
-            }}
-          >
-            {label}
-          </Button>
-        ))}
-        {/* border-radius: 8px;
+        <div
+          style={{
+            display: 'flex',
+            gap: 12,
+            maxWidth: 320,
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
+          {[
+            {
+              key: 'map',
+              label: '园区地图',
+            },
+            {
+              key: 'guide',
+              label: 'A 栋楼层指引',
+            },
+          ].map(({ key, label }) => (
+            <Button
+              block
+              onClick={() => {
+                if (currentKey === key) return;
+                setCurrentKey(key as 'guide' | 'map');
+              }}
+              key={key}
+              style={{
+                fontSize: 14,
+                borderRadius: 8,
+                borderWidth: 1,
+                color: currentKey === key ? '#000' : 'rgba(0, 0, 0, 0.70)',
+                borderStyle: 'solid',
+                borderColor:
+                  currentKey === key ? 'var(--adm-color-primary)' : '#CBCBCB',
+                fontWeight: 600,
+                padding: '12px ',
+                background:
+                  currentKey === key ? 'var(--adm-color-primary)' : '#EDEFEF',
+              }}
+            >
+              {label}
+            </Button>
+          ))}
+          {/* border-radius: 8px;
 border: 1px solid #;
 
 background: #EDEFEF; */}
+        </div>
       </div>
     </div>
   );
