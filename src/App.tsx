@@ -11,6 +11,7 @@ import './index.less';
 import Home from './pages/home/Home';
 import VenueMap from './pages/venue-map/VenueMap';
 import Service from './pages/service/Service';
+import Campaign from './pages/campaign/Campaign';
 // import throttle from './utils/throttle';
 
 const TABS_DATA = [
@@ -21,6 +22,10 @@ const TABS_DATA = [
   {
     key: '/venue-maps',
     title: '会场地图',
+  },
+  {
+    key: '/campaign',
+    title: '系列活动',
   },
   {
     key: '/service',
@@ -89,6 +94,7 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/venue-maps" element={<VenueMap />} />
           <Route path="/service" element={<Service />} />
+          <Route path="/campaign" element={<Campaign />} />
         </Routes>
       </div>
       <div
